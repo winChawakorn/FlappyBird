@@ -2,20 +2,19 @@ import bird from './Bird/Bird.js'
 
 // use object instead of function because of it's singleton
 var Game = {
-  isPlayed : false,
+  iid : 0,
   gravity : 10,
   moveBird : function() {
-    bird.move(2,0)
+    bird.move(3,0)
+    console.log(bird);
   },
   start : function() {
     console.log("Game start");
-    this.isPlayed = true
-    if(this.isPlayed)
-      this.moveBird()
+    this.iid = setInterval( () => this.moveBird() , 1000)
   },
   stop : function() {
     console.log("Game stop");
-    this.isPlayed = false
+    clearInterval(this.iid);
   },
   updateBirdUi : function() {
     var b = document.getElementById('bird');

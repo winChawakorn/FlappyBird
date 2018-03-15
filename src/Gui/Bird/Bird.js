@@ -12,15 +12,6 @@ class Bird extends React.Component {
     this.refresh = this.refresh.bind(this)
   }
 
-  refresh() {
-    // setInterval( ()=>
-    //   {
-    //     if(this.props.isPlay){
-    //       this.setState( { bird : bird } )
-    //     }
-    //   } , 1000)
-  }
-
   render() {
     return (<div>
               <div id="bird" onClick={()=>{
