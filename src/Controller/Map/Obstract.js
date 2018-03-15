@@ -2,7 +2,7 @@ import setting from './setting'
 // can call new Obstract()
 function Obstract() {
   console.log("creating Obstract");
-  var width = 30
+  var width = setting.obstract_width
   var height = setting.bird_width * 2
   var x = setting.width + width
   var y = this.randomY()

@@ -13,7 +13,7 @@ var Game = {
     console.log(bird);
   },
   Jump : function() {
-    bird.move(-10 , 0)
+    bird.move(-15 , 0)
     this.accurate = 0
   }
   start : function() {

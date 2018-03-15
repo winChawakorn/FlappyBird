@@ -1,8 +1,10 @@
+import setting from '../Map/Setting'
+
 var Bird = {
-  x : 0,
-  y : 45,
-  width : 100,
-  height : 100,
+  x : setting.width / 2,
+  y : setting.height / 2,
+  width : setting.bird_width,
+  height : setting.bird_height,
 
   move : function(dx,dy) {
     this.x += dx
