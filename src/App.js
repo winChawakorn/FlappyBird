@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// test bird
+import Bird from './Gui/Bird/Bird.js'
+// test controller
+import Game from './Controller/Game.js'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = { playing : false}
+    this.startGame = this.startGame.bind(this)
+    this.stopGame = this.stopGame.bind(this)
+  }
+
+  startGame() {
+    Game.start();
+    this.setState({ playing : true})
+  }
+
+  stopGame() {
+    Game.stop();
+    this.setState({ playing : false})
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div>
+          <Bird isPlay={this.state.playing}/>
+          <h1 onClick={ ()=> { this.startGame()} }>START</h1>
+          <h1 onClick={ ()=> { this.stopGame()} }>STOP</h1>
+        </div>
     );
   }
 }
