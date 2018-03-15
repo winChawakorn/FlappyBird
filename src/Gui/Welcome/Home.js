@@ -1,6 +1,6 @@
 import React from 'react';
 
-var smallBtn = { width: '100px', padding: '6px', marginLeft: '1em', fontSize: '16px' };
+var smallBtn = { width: '100px', padding: '6px', marginLeft: '1em', fontSize: '16px', background: 'pink' };
 var or = {display: 'flex', fontWeight: 'bold', marginTop: '3em', marginBottom: '2em'};
 
 class Home extends React.Component {
@@ -14,7 +14,7 @@ class Home extends React.Component {
                 <button className="button">Login</button>
                 <div>
                     Don't have an account ?
-                        <button className="button.small" style={smallBtn}>Sign up</button>
+                        <button style={smallBtn}>Sign up</button>
                 </div>
                 <div style={or}>
                     <hr style={{width: '100px'}}/>OR<hr style={{width: '100px'}}/> 
