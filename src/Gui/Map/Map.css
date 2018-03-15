@@ -4,16 +4,16 @@
   height: 100vh;
   opacity: 0.9;
 	-webkit-animation-name: move;
-	-webkit-animation-duration: 20s;
+	-webkit-animation-duration: 2s;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes move {
 	from {
-		background-position: 5% 0%
+		background-position: 1300px 0
 	}
 	to {
-		background-position: 1300% 0%
+		background-position: 100px 0%
 	}
 }
