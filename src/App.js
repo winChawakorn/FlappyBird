@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Home from './Gui/Welcome/Home';
 import Menu from './Gui/Welcome/Menu';
@@ -9,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home />
+          <Home />
       </div>
     );
   }
