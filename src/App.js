@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Home from './Gui/Welcome/Home';
+import Menu from './Gui/Welcome/Menu';
 import './Gui/Welcome/Home.css';
 
 class App extends Component {
