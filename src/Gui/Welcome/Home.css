@@ -1,0 +1,33 @@
+.home {
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
+    margin-top: 7em;
+}
+
+.home input {
+    font-size: 18px;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 300px;
+    padding: 8px;
+    background: transparent;
+}
+
+::placeholder {
+    color: lightblue;
+}
+
+.home * {
+    margin-top: 1em;
+}
+
+.home button {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ceffff;
+    border: 0;
+    padding: 12px;
+    width: 320px;
+    background: #f1bc03;
+}
