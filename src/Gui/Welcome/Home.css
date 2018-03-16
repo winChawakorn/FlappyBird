@@ -3,9 +3,10 @@
     text-align: center;
     margin: auto;
     margin-top: 7em;
+    animation: 1s animation;
 }
 
-.home input {
+.textfield {
     font-size: 18px;
     border: 0;
     border-bottom: 1px solid black;
@@ -30,4 +31,9 @@
     padding: 12px;
     width: 320px;
     background: #f1bc03;
+}
+
+@keyframes animation {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

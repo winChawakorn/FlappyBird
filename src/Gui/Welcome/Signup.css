@@ -1,0 +1,21 @@
+.signup {
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
+    margin-top: 7em;
+    animation: 1s animation;
+}
+
+.signup * {
+    margin-top: 2em;
+}
+
+.signup button {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ceffff;
+    border: 0;
+    padding: 12px;
+    width: 300px;
+    background: blue;
+}
