@@ -9,17 +9,15 @@ class Bird extends React.Component {
     this.state = {
       bird : bird,
     }
-    this.refresh = this.refresh.bind(this)
   }
 
   render() {
+    console.log(this.state.bird);
     return (<div>
-              <div id="bird" onClick={()=>{
-                this.refresh()
-              }} style={{
+              <div id="bird" style={{
                 position: 'absolute',
-                top: `${bird.x}%`,
-                left: `${bird.y}%`,
+                top: `${bird.x}px`,
+                left: `${bird.y}px`,
                 width: `${bird.width}px` ,
                 height: `${bird.height}px` ,
                 border: '1px solid black'}}>

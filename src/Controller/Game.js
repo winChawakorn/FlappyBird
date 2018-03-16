@@ -1,46 +1,57 @@
 import bird from './Bird/Bird.js'
-import Obstract from './Map/Obstract'
+import Obstract from './Obstacle/Obstacle'
+import setting from './Map/Setting'
 
-var obstactCreateTime = 50;
+var obstactCreateTime = setting.obstract_width * 1;
 
 // use object instead of function because of it's singleton
 var Game = {
-  iid : 0,
+  iid : [],
   accurate : 1,
   obstracts : [],
   moveBird : function() {
-    bird.move(1 + accurate , 0)
-    console.log(bird);
+    bird.move(1 + this.accurate , 0)
+    // console.log(bird);
   },
   Jump : function() {
     bird.move(-15 , 0)
     this.accurate = 0
-  }
+  },
   start : function() {
     console.log("Game start");
-    // one timing
-    this.iid = setInterval( () => {
+
+    var id = setInterval( ()=> {
       this.moveBird()
+      this.accurate += 1
+      if(this.refresh() != null) {
+        this.refresh()
+      }
+    } , 43)
+    this.iid.push(id)
+    var id2 = setInterval( () => {
       this.obstracts.forEach((item) => {
         item.move()
       })
-      this.accurate += 1
-      obstactCreateTime--;
+      obstactCreateTime-=1;
       if(obstactCreateTime <= 0) {
         this.obstracts.push(new Obstract())
-        obstactCreateTime = 50;
+        obstactCreateTime = setting.obstract_width * 3;
       }
-      if(obstracts[0].x + obstracts[0].width < 0)
-        obstracts = obstracts.slice(1)
-    } , 1000)
+      if(this.obstracts.length>0) {
+        if(this.obstracts[0].x + this.obstracts[0].width < 0)
+          this.obstracts = this.obstracts.slice(1)
+      }
+      if(this.refresh() != null) {
+        this.refresh()
+      }
+    } , 10)
+    this.iid.push(id2)
   },
   stop : function() {
     console.log("Game stop");
-    clearInterval(this.iid);
-  },
-  updateBirdUi : function() {
-    var b = document.getElementById('bird');
-    b.click();
+    this.iid.forEach((id) => {
+      clearInterval(id);
+    })
   }
 }
 
