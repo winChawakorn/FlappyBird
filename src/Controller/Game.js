@@ -17,7 +17,7 @@ var Game = {
   },
   Jump: function () {
     clearInterval(this.jid)
-    var final = bird.y - 140
+    var final = bird.y - 110
     this.jid = setInterval(() => {
       bird.move(-20)
       this.refresh()
@@ -26,21 +26,21 @@ var Game = {
     }, 20)
     this.accurate = 0
   },
-  startBird : function () {
-    var id = setInterval( ()=> {
+  startBird: function () {
+    var id = setInterval(() => {
       this.moveBird()
       this.accurate += 0.8
       if (birdUtil.checkHit(bird, this.obstracts) || birdUtil.checkFall(bird)) {
         // GAME OVER
         this.stop()
       }
-    } , 43)
+    }, 43)
     this.iid.push(id)
   },
-  start : function() {
+  start: function () {
     console.log("Game start");
     this.startBird();
-    var id2 = setInterval( () => {
+    var id2 = setInterval(() => {
       this.obstracts.forEach((item) => {
         item.move()
       })

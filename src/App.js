@@ -29,7 +29,8 @@ class App extends Component {
         height: `100%`,
         clip: 'auto',
         position: 'absolute',
-        overflow: 'hidden',}}>
+        overflow: 'hidden',
+        backgroundImage: 'linear-gradient(to right, #adefff, white)'}}>
         { this.state.page==="home" && <Home changePage={this.changePage} />}
         { this.state.page==="menu" && <Menu changePage={this.changePage} login={this.state.login} /> }
         { this.state.page==="signup" && <Signup changePage={this.changePage}/>}
