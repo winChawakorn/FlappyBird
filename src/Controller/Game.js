@@ -10,7 +10,7 @@ var Game = {
   accurate : 1,
   obstracts : [],
   moveBird : function() {
-    bird.move(1 + this.accurate , 0)
+    // bird.move(1 + this.accurate , 0)
     // console.log(bird);
   },
   Jump : function() {
@@ -22,7 +22,7 @@ var Game = {
 
     var id = setInterval( ()=> {
       this.moveBird()
-      this.accurate += 1
+      // this.accurate += 1
       if(this.refresh() != null) {
         this.refresh()
       }

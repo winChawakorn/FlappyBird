@@ -2,6 +2,8 @@ import React from 'react';
 import Obstruct from '../../Controller/Obstacle/Obstacle'
 import Game from '../../Controller/Game'
 
+import setting from '../../Controller/Map/Setting'
+
 class Obstacle extends React.Component {
     constructor(props) {
         super(props)
@@ -9,27 +11,36 @@ class Obstacle extends React.Component {
         }
     }
 
+    getResponsiveLeft(obstracle) {
+      const divider = setting.width / 100
+      return (obstracle.x / divider) + "%"
+    }
+
+    getResponsiveWidth(obstracle) {
+      const divider = setting.width / 100
+      return (obstracle.width / divider) + "%"
+    }
+
     getObstacts() {
       // use this for test otherwise comment it
       // Game.obstracts = [ new Obstruct() ]
       /////////
       return <div>{Game.obstracts.map((obstacle , id) => {
-        console.log(obstacle);
         return (
                 <div key={id}>
-                  <div style={{width: `${obstacle.width}px`,
+                  <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
                               height: `${obstacle.height}px`,
                               position : 'absolute',
                               background: 'red',
-                              left: `${obstacle.x}px`,
+                              left: `${this.getResponsiveLeft(obstacle)}`,
                               backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
                               border: '3px solid black',
                               borderTop: '0'}}>
                   </div>
-                  <div style={{width: `${obstacle.width}px`,
+                  <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
                               height: `calc(800px - ${obstacle.between}px - ${obstacle.height}px)`,
                               bottom: '0',
-                              left: `${obstacle.x}px`,
+                              left: `${this.getResponsiveLeft(obstacle)}`,
                               position: 'absolute',
                               backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
                               border: '3px solid black',
