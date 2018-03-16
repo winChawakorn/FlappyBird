@@ -15,7 +15,7 @@ var Game = {
     // console.log(bird);
   },
   Jump : function() {
-    bird.move(-35)
+    bird.move(-100)
     this.accurate = 0
   },
   start : function() {
@@ -23,7 +23,7 @@ var Game = {
 
     var id = setInterval( ()=> {
       this.moveBird()
-      // this.accurate += 1
+      this.accurate += 0.6
       if( birdUtil.checkHit(bird,this.obstracts) || birdUtil.checkFall(bird) ) {
         // GAME OVER
         this.stop()
@@ -53,7 +53,7 @@ var Game = {
       if(this.refresh() != null) {
         this.refresh()
       }
-    } , 10)
+    } , 2)
     this.iid.push(id2)
   },
   stop : function() {

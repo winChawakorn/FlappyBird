@@ -1,5 +1,5 @@
 import React from 'react';
-import Obstruct from '../../Controller/Obstacle/Obstacle'
+// import Obstruct from '../../Controller/Obstacle/Obstacle'
 import Game from '../../Controller/Game'
 
 import setting from '../../Controller/Map/Setting'
@@ -32,6 +32,7 @@ class Obstacle extends React.Component {
     }
 
     getObstacts() {
+      console.log(Game);
       // use this for test otherwise comment it
       // Game.obstracts = [ new Obstruct() ]
       /////////
@@ -45,7 +46,8 @@ class Obstacle extends React.Component {
                               left: `${this.getResponsiveLeft(obstacle)}`,
                               backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
                               border: '3px solid black',
-                              borderTop: '0'}}>
+                              borderTop: '0',
+                              overflow: 'hidden'}}>
                   </div>
                   <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
                               height: `${this.getResponsiveHeightBot(obstacle)}`,
@@ -54,7 +56,8 @@ class Obstacle extends React.Component {
                               position: 'absolute',
                               backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
                               border: '3px solid black',
-                              borderBottom: '0',}}>
+                              borderBottom: '0',
+                              overflow: 'hidden'}}>
                   </div>
                 </div>
         )
@@ -66,19 +69,4 @@ class Obstacle extends React.Component {
     }
 }
 
-// {/*<div style={{bottom: `calc(730px - ${obstacle.height}px)`,
-//             position: 'absolute',
-//             width: '110px',
-//             height: '50px',
-//             backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
-//             border: '3px solid black',
-//             marginLeft: '-8px'}}></div>*/}
-
-// {/*<div style={{width: '110px',
-//     height: '50px',
-//     backgroundImage: 'linear-gradient(to right, brown, #f5c48d)',
-//     border: '3px solid black',
-//     borderTop: '0',
-//     marginLeft: '-8px',
-//     maringTop: '50px'}}></div>*/}
 export default Obstacle;
