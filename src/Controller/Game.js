@@ -12,15 +12,12 @@ var Game = {
   obstracts : [],
   moveBird : function() {
     bird.move(1 + this.accurate)
-    // console.log(bird);
   },
   Jump : function() {
-    bird.move(-100)
+    bird.move(-100 )
     this.accurate = 0
   },
-  start : function() {
-    console.log("Game start");
-
+  startBird : function () {
     var id = setInterval( ()=> {
       this.moveBird()
       this.accurate += 0.6
@@ -28,11 +25,13 @@ var Game = {
         // GAME OVER
         this.stop()
       }
-      if(this.refresh() != null) {
-        this.refresh()
-      }
+      this.refresh()
     } , 43)
     this.iid.push(id)
+  },
+  start : function() {
+    console.log("Game start");
+    this.startBird();
     var id2 = setInterval( () => {
       this.obstracts.forEach((item) => {
         item.move()
@@ -50,9 +49,7 @@ var Game = {
         if(this.obstracts[0].x + this.obstracts[0].width < 0)
           this.obstracts = this.obstracts.slice(1)
       }
-      if(this.refresh() != null) {
-        this.refresh()
-      }
+      this.refresh()
     } , 2)
     this.iid.push(id2)
   },

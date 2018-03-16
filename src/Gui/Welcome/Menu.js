@@ -22,7 +22,7 @@ class Menu extends React.Component {
                 </div>
                 <div className="menu">
                     <h1>FLAPPY BIRD</h1>
-                    <button>Start</button>
+                    <button onClick={() => {this.props.changePage('game')}}>Start</button>
                     <button>Scoreboard</button>
                     <button>Option</button>
                     <button onClick={() => {this.props.changePage('home')}}>Logout</button>
