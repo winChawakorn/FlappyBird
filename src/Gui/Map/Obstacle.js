@@ -32,7 +32,6 @@ class Obstacle extends React.Component {
     }
 
     getObstacts() {
-      console.log(Game);
       // use this for test otherwise comment it
       // Game.obstracts = [ new Obstruct() ]
       /////////

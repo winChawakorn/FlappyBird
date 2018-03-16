@@ -9,10 +9,6 @@ function Obstacle() {
     this.move = function() {
       this.x -= 1
     }
-
-    this.printSomeThing = function() {
-      console.log("printing");
-    }
 }
 
 export default Obstacle;

@@ -2,7 +2,7 @@ import React from 'react'
 
 // use bird
 import bird from '../../Controller/Bird/Bird'
-
+import birdImg from '../../images/bird.svg'
 import setting from '../../Controller/Map/Setting'
 
 class Bird extends React.Component {
@@ -35,8 +35,9 @@ class Bird extends React.Component {
                 left: `${this.getResponsiveLeft()}`,
                 width: `${this.getResponsiveWidth()}` ,
                 height: `${this.getResponsiveHeight()}` ,
-                border: '1px solid black'}}>
-                Bird
+                border: '2px solid red',
+                }}>
+                <img src={birdImg} alt="bird" style={{width:`100%` , height:`100%`}} />
               </div>
             </div>)
   }
