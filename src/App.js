@@ -20,6 +20,7 @@ class App extends Component {
   //       position: 'absolute',
   //       overflow: 'hidden',}}>
   //       <GameApp />
+
   constructor() {
     super()
     this.state = {
@@ -45,9 +46,9 @@ class App extends Component {
     Game.refresh = () => { this.refresh() }
     return (
       <div>
-        { this.state.page==="home" && <Home changePage={this.changePage} />}
-        { this.state.page==="menu" && <Menu changePage={this.changePage} login={this.state.login} /> }
-        { this.state.page==="signup" && <Signup changePage={this.changePage}/>}
+        {this.state.page === "home" && <Home changePage={this.changePage} />}
+        {this.state.page === "menu" && <Menu changePage={this.changePage} login={this.state.login} />}
+        {this.state.page === "signup" && <Signup changePage={this.changePage} />}
       </div>
     );
   }
