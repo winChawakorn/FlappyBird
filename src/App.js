@@ -20,11 +20,7 @@ class App extends Component {
     Game.refresh = () => {this.refresh()}
     return (
       <div>
-          <button onClick={ ()=> Game.Jump()} > JUMP </button>
-          <button onClick={ ()=> Game.start()} > start </button>
-          <button onClick={ ()=> Game.stop()} > Stop </button>
-          <Bird />
-          <Obstacle />
+          
       </div>
     );
   }

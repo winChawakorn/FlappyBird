@@ -33,7 +33,7 @@ class Obstacle extends React.Component {
 
     getObstacts() {
       // use this for test otherwise comment it
-      Game.obstracts = [ new Obstruct() ]
+      // Game.obstracts = [ new Obstruct() ]
       /////////
       return <div>{Game.obstracts.map((obstacle , id) => {
         return (
