@@ -11,6 +11,8 @@ var Game = {
   jid: 0,
   accurate: 1,
   obstracts: [],
+  score: 0,
+  isDead: false,
   moveBird: function () {
     bird.move(1 + this.accurate)
     this.refresh()
@@ -32,6 +34,7 @@ var Game = {
       this.accurate += 0.8
       if (birdUtil.checkHit(bird, this.obstracts) || birdUtil.checkFall(bird)) {
         // GAME OVER
+        this.isDead = true
         this.stop()
       }
     }, 43)
@@ -46,6 +49,7 @@ var Game = {
       })
       if (birdUtil.checkHit(bird, this.obstracts)) {
         // GAME OVER
+        this.isDead = true
         this.stop()
       }
       obstactCreateTime -= 1;
@@ -67,6 +71,20 @@ var Game = {
       clearInterval(id);
     })
     clearInterval(this.jid);
+    this.gameStop()
+  },
+  reset: function () {
+    this.stop()
+    this.iid = []
+    this.jid = 0
+    this.accurate= 1
+    this.score = 0
+    this.obstracts= []
+    this.isDead = false
+    obstactCreateTime = setting.obstract_width * 1;
+    // bird
+    bird.y = setting.height / 2;
+    this.refresh();
   }
 }
 
