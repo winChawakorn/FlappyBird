@@ -21,15 +21,25 @@ class Obstacle extends React.Component {
       return (obstracle.width / divider) + "%"
     }
 
+    getResponsiveHeightTop(obstracle) {
+      const divider = setting.height / 100
+      return (obstracle.height / divider) + "%"
+    }
+
+    getResponsiveHeightBot(obstracle) {
+      const divider = setting.height / 100
+      return ((setting.height - obstracle.height - setting.obstract_between) / divider) + "%"
+    }
+
     getObstacts() {
       // use this for test otherwise comment it
-      // Game.obstracts = [ new Obstruct() ]
+      Game.obstracts = [ new Obstruct() ]
       /////////
       return <div>{Game.obstracts.map((obstacle , id) => {
         return (
                 <div key={id}>
                   <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
-                              height: `${obstacle.height}px`,
+                              height: `${this.getResponsiveHeightTop(obstacle)}`,
                               position : 'absolute',
                               background: 'red',
                               left: `${this.getResponsiveLeft(obstacle)}`,
@@ -38,7 +48,7 @@ class Obstacle extends React.Component {
                               borderTop: '0'}}>
                   </div>
                   <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
-                              height: `calc(800px - ${obstacle.between}px - ${obstacle.height}px)`,
+                              height: `${this.getResponsiveHeightBot(obstacle)}`,
                               bottom: '0',
                               left: `${this.getResponsiveLeft(obstacle)}`,
                               position: 'absolute',

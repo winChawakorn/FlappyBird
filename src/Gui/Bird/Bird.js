@@ -3,23 +3,38 @@ import React from 'react'
 // use bird
 import bird from '../../Controller/Bird/Bird'
 
+import setting from '../../Controller/Map/Setting'
+
 class Bird extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      bird : bird,
-    }
+
+  getResponsiveLeft(){
+      const divider = setting.width / 100
+      return (bird.x / divider) + "%"
+  }
+
+  getResponsiveTop(){
+      const divider = setting.height / 100
+      return (bird.y / divider) + "%"
+  }
+
+  getResponsiveWidth(){
+      const divider = setting.width / 100
+      return (bird.width / divider) + "%"
+  }
+
+  getResponsiveHeight(){
+      const divider = setting.height / 100
+      return (bird.height / divider) + "%"
   }
 
   render() {
-    console.log(this.state.bird);
     return (<div>
               <div id="bird" style={{
                 position: 'absolute',
-                top: `${bird.x}px`,
-                left: `${bird.y}px`,
-                width: `${bird.width}px` ,
-                height: `${bird.height}px` ,
+                top: `${this.getResponsiveTop()}`,
+                left: `${this.getResponsiveLeft()}`,
+                width: `${this.getResponsiveWidth()}` ,
+                height: `${this.getResponsiveHeight()}` ,
                 border: '1px solid black'}}>
                 Bird
               </div>
