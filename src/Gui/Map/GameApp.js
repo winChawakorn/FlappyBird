@@ -5,6 +5,7 @@ import Bird from '../Bird/Bird'
 import Obstacle from './Obstacle'
 import PlayPause from './GameApp/PlayPause'
 import CountDown from './GameApp/CountDown'
+import Score from './GameApp/Score'
 
 import Game from '../../Controller/Game'
 
@@ -30,21 +31,25 @@ class GameApp extends React.Component {
   }
 
   start() {
-    this.setState( {count : 3} )
-    var iid = setInterval( () => {
-      if(this.state.count >= 0) {
-          this.setState( {count : this.state.count - 1} )
-      } else {
-        this.setState( {isPlay : true} )
-        this.state.game.start()
-        clearInterval(iid)
-      }
-    } , 1000)
+    if(!this.state.isPlay){
+      this.setState( {count : 3} )
+      var iid = setInterval( () => {
+        if(this.state.count >= 0) {
+            this.setState( {count : this.state.count - 1} )
+        } else {
+          this.setState( {isPlay : true} )
+          this.state.game.start()
+          clearInterval(iid)
+        }
+      } , 1000)
+    }
   }
 
   stop() {
-    this.state.game.stop()
-    this.setState( { isPlay : false} )
+    if(this.state.isPlay) {
+      this.state.game.stop()
+      this.setState( { isPlay : false} )
+    }
   }
 
   reset() {
@@ -93,6 +98,7 @@ class GameApp extends React.Component {
         <PlayPause isPlay={this.state.isPlay} start={this.start} stop={this.stop}/>
         <Bird Game={Game}/>
         <Obstacle Game={Game}/>
+        <Score Game={Game}/>
       </div>
     )
   }

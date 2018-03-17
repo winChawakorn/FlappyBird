@@ -6,6 +6,7 @@ function Obstacle() {
     this.between = setting.obstract_between
     this.x = setting.width + this.width
 
+    this.score = setting.obstract_score
     this.move = function() {
       this.x -= 1
     }

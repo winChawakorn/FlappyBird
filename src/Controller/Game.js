@@ -46,6 +46,12 @@ var Game = {
     var id2 = setInterval(() => {
       this.obstracts.forEach((item) => {
         item.move()
+        if(item.score !== 0 && (item.x + item.width < bird.x)) {
+          this.score += item.score
+          console.log(this.score)
+          item.score = 0;
+          this.updateScore()
+        }
       })
       if (birdUtil.checkHit(bird, this.obstracts)) {
         // GAME OVER
