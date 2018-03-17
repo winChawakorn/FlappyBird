@@ -22,6 +22,7 @@ class App extends Component {
       login: login
     });
   }
+  
   render() {
     return (
       <div style={{

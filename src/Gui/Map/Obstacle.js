@@ -1,14 +1,12 @@
 import React from 'react';
 // import Obstruct from '../../Controller/Obstacle/Obstacle'
-import Game from '../../Controller/Game'
 
 import setting from '../../Controller/Map/Setting'
 
 class Obstacle extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
+
+    componentDidMount() {
+      this.props.Game.refreshObstracts = () => { this.refreshObstracts() }
     }
 
     getResponsiveLeft(obstracle) {
@@ -35,7 +33,7 @@ class Obstacle extends React.Component {
       // use this for test otherwise comment it
       // Game.obstracts = [ new Obstruct() ]
       /////////
-      return <div>{Game.obstracts.map((obstacle , id) => {
+      return <div>{this.props.Game.obstracts.map((obstacle , id) => {
         return (
                 <div key={id}>
                   <div style={{width: `${this.getResponsiveWidth(obstacle)}`,
@@ -61,6 +59,10 @@ class Obstacle extends React.Component {
                 </div>
         )
       })}</div>
+    }
+
+    refreshObstracts() {
+      this.forceUpdate()
     }
 
     render() {

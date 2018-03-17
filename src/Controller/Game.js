@@ -15,14 +15,14 @@ var Game = {
   isDead: false,
   moveBird: function () {
     bird.move(1 + this.accurate)
-    this.refresh()
+    this.refreshBird()
   },
   Jump: function () {
     clearInterval(this.jid)
     var final = bird.y - 110
     this.jid = setInterval(() => {
       bird.move(-20)
-      this.refresh()
+      this.refreshBird()
       if (bird.y <= final)
         clearInterval(this.jid)
     }, 20)
@@ -61,7 +61,7 @@ var Game = {
         if (this.obstracts[0].x + this.obstracts[0].width < 0)
           this.obstracts = this.obstracts.slice(1)
       }
-      this.refresh()
+      this.refreshObstracts()
     }, 2)
     this.iid.push(id2)
   },
@@ -84,7 +84,8 @@ var Game = {
     obstactCreateTime = setting.obstract_width * 1;
     // bird
     bird.y = setting.height / 2;
-    this.refresh();
+    this.refreshBird();
+    this.refreshObstracts();
   }
 }
 

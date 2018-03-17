@@ -7,6 +7,10 @@ import setting from '../../Controller/Map/Setting'
 
 class Bird extends React.Component {
 
+    componentDidMount() {
+        this.props.Game.refreshBird = () => this.refreshBird()
+    }
+
     getResponsiveLeft() {
         const divider = setting.width / 100
         return (bird.x / divider) + "%"
@@ -25,6 +29,10 @@ class Bird extends React.Component {
     getResponsiveHeight() {
         const divider = setting.height / 100
         return (bird.height / divider) + "%"
+    }
+
+    refreshBird() {
+        this.forceUpdate()
     }
 
     render() {

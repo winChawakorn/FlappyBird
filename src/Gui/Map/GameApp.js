@@ -25,7 +25,6 @@ class GameApp extends React.Component {
 
   componentDidMount() {
       this.setState( { game : Game } )
-      Game.refresh = () => {this.refresh()}
       Game.gameStop = () => {this.gameStop()}
       this.start()
   }
@@ -60,10 +59,6 @@ class GameApp extends React.Component {
       this.state.game.Jump()
   }
 
-  refresh() {
-    this.forceUpdate()
-  }
-
   gameStop() {
     this.setState( { isPlay : false} )
     if(Game.isDead) {
@@ -96,8 +91,8 @@ class GameApp extends React.Component {
           style={{position : 'fixed' , top :'0' , left : '0' , width : `100%` , height : `100vh` , background: 'black' ,opacity : 0, zIndex : '500'}}>
         </div>}
         <PlayPause isPlay={this.state.isPlay} start={this.start} stop={this.stop}/>
-        <Bird />
-        <Obstacle />
+        <Bird Game={Game}/>
+        <Obstacle Game={Game}/>
       </div>
     )
   }
